@@ -1,7 +1,8 @@
-package com.android.tmdbkmp
+package com.petru.tmdbkmp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.petru.tbdbkmp.R
 
 class MainActivity : AppCompatActivity() {
 

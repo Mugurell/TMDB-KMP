@@ -1,4 +1,4 @@
-package com.android.tmdbkmp
+package com.petru.tmdbkmp
 
 import org.junit.Test
 
