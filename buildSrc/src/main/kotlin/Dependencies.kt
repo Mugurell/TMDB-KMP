@@ -24,6 +24,8 @@ object Libs {
 
     private val versions = Versions()
 
+    val kotlin_sdlib_common =
+        "org.jetbrains.kotlin:kotlin-stdlib-common:${GradlePlugins.versions.kotlin}"
     val kotlin_stdlib_jdk8 =
         "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${GradlePlugins.versions.kotlin}"
     val appCompat = "androidx.appcompat:appcompat:${versions.appCompat}"

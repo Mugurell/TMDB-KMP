@@ -1,4 +1,4 @@
-package com.android.common
+package com.petru.common
 
 import org.junit.Test
 

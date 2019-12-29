@@ -4,6 +4,7 @@ import extensions.BuildPlugins.ANDROID_LIBRARY
 import org.jetbrains.kotlin.gradle.plugin.KotlinMultiplatformPluginWrapper
 import plugins.AndroidConfigPlugin
 import plugins.KotlinConfigPlugin
+import plugins.KMPConfigPlugin
 import plugins.PluginsHelper.applyPluginsTimed
 
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
@@ -53,7 +54,7 @@ subprojects {
     }
     plugins.withType(KotlinMultiplatformPluginWrapper::class.java) {
         if (project.pluginManager.hasPlugin(ANDROID_LIBRARY)) {
-            println("This KMP project is a library. Let's configure it accordingly ...")
+            applyPluginsTimed(project, KMPConfigPlugin())
         } else {
             println("This KMP project is NOT a library. Skipping configuring it.")
         }

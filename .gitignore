@@ -1,6 +1,7 @@
 *.iml
 .gradle
 /local.properties
+/.idea/artifacts
 /.idea/caches
 /.idea/libraries
 /.idea/modules.xml
@@ -13,3 +14,4 @@
 /captures
 .externalNativeBuild
 .cxx
+!/.idea/artifacts/common_jvm.xml

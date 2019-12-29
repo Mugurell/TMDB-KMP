@@ -9,7 +9,7 @@ object Versions {
     const val androidJetifierProcessor = "1.0.0-beta04"
 
     // Kotlin
-    const val kotlin = "1.3.30"
+    const val kotlin = "1.3.60"
 
     // Kotlin coroutines
     const val kotlinxCoroutines = "1.1.0"
