@@ -1,7 +1,8 @@
 package extensions
 
+import Dependencies
 import com.android.build.gradle.BaseExtension
-import org.gradle.api.JavaVersion
+import deps.Versions
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.getByType
 import org.gradle.kotlin.dsl.getValue
@@ -30,7 +31,7 @@ fun KotlinMultiplatformExtension.configure(project: Project) {
         // By default MPP names the Android module "main"
         // Let's rename that to "androidMain" to respect the convention.
         val android = project.extensions.getByType<BaseExtension>()
-        with (android.sourceSets) {
+        with(android.sourceSets) {
             val main by getting {
                 setRoot("src/androidMain")
                 manifest.srcFile("src/androidMain/resources/manifest/AndroidManifest.xml")
@@ -40,18 +41,12 @@ fun KotlinMultiplatformExtension.configure(project: Project) {
         }
 
         val commonMain by getting {
-            dependencies {
-                // add here common KMP dependencies
-                implementation(Libs.kotlin_sdlib_common)
-            }
+            dependencies(Dependencies.commonMain)
         }
 
         val androidMain by getting {
             dependsOn(commonMain)
-            dependencies {
-                implementation(Libs.kotlin_stdlib_jdk8)
-                // add here Android dependencies custom to use on the KMP project
-            }
+            dependencies(Dependencies.commonAndroid)
         }
 
         val iosMain = if (ideaActive) {
@@ -62,9 +57,7 @@ fun KotlinMultiplatformExtension.configure(project: Project) {
 
         iosMain.apply {
             dependsOn(commonMain)
-            dependencies {
-                // add here iOS dependencies custom to use on the KMP project
-            }
+            dependencies(Dependencies.commonIos)
         }
         val iosArm32Main by getting
         val iosArm64Main by getting
@@ -74,9 +67,7 @@ fun KotlinMultiplatformExtension.configure(project: Project) {
         }
 
         val commonTest by getting {
-            dependencies {
-                // add here KMP dependencies custom to use when testing a KMP project
-            }
+            dependencies(Dependencies.commonMainTest)
         }
     }
 
@@ -110,6 +101,6 @@ fun KotlinMultiplatformExtension.configure(project: Project) {
     }
 
     project.tasks.withType<KotlinCompile>().all {
-        kotlinOptions.jvmTarget = JavaVersion.VERSION_1_8.toString()
+        kotlinOptions.jvmTarget = Versions.jvm.toString()
     }
 }

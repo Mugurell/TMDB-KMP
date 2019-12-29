@@ -1,7 +1,7 @@
 package com.petru.tmdbkmp
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.petru.tbdbkmp.R
 import kotlinx.android.synthetic.main.activity_main.*
 

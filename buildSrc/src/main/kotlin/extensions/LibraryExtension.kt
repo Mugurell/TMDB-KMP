@@ -2,7 +2,7 @@ package extensions
 
 import BuildAndroidConfig
 import com.android.build.gradle.LibraryExtension
-import org.gradle.api.JavaVersion
+import deps.Versions
 import org.gradle.api.Project
 
 fun LibraryExtension.configure(project: Project) {
@@ -30,7 +30,7 @@ fun LibraryExtension.configure(project: Project) {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = Versions.jvm
+        targetCompatibility = Versions.jvm
     }
 }

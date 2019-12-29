@@ -1,10 +1,11 @@
 import com.android.build.gradle.AppPlugin
 import com.android.build.gradle.LibraryPlugin
+import deps.Versions
 import extensions.BuildPlugins.ANDROID_LIBRARY
 import org.jetbrains.kotlin.gradle.plugin.KotlinMultiplatformPluginWrapper
 import plugins.AndroidConfigPlugin
-import plugins.KotlinConfigPlugin
 import plugins.KMPConfigPlugin
+import plugins.KotlinConfigPlugin
 import plugins.PluginsHelper.applyPluginsTimed
 
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
@@ -66,3 +67,6 @@ tasks {
         delete(buildDir)
     }
 }
+
+// dependencies graph generator
+apply(from = "https://raw.githubusercontent.com/JakeWharton/SdkSearch/master/gradle/projectDependencyGraph.gradle")

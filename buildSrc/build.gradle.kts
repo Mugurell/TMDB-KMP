@@ -22,11 +22,9 @@ repositories {
     jcenter()
 }
 
+// Can't hide this behind Dependencies. "Unresolved reference: Dependencies'.
 dependencies {
     implementation("com.android.tools.build:gradle:3.6.0-rc01")
     implementation("org.jetbrains.kotlin:kotlin-gradle-plugin:1.3.61")
     implementation("org.eclipse.jgit:org.eclipse.jgit.pgm:5.3.1.201904271842-r")
 }
-
-// dependencies graph generator
-//apply(from = "https://raw.githubusercontent.com/JakeWharton/SdkSearch/master/gradle/projectDependencyGraph.gradle")

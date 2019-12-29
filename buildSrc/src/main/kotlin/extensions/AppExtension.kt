@@ -2,9 +2,9 @@ package extensions
 
 import BuildAndroidConfig
 import com.android.build.gradle.AppExtension
+import deps.Versions
 import extensions.BuildPlugins.KOTLIN_ANDROID
 import extensions.BuildPlugins.KOTLIN_ANDROID_EXTENSIONS
-import org.gradle.api.JavaVersion
 import org.gradle.api.Project
 
 fun AppExtension.configure(project: Project) {
@@ -40,7 +40,7 @@ fun AppExtension.configure(project: Project) {
     }
 
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = Versions.jvm
+        targetCompatibility = Versions.jvm
     }
 }
