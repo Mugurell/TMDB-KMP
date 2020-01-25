@@ -8,6 +8,8 @@ object Versions {
 
     // Plugins
     const val androidBuildTools = "3.6.0-rc01"
+    const val detekt = "1.3.1"
+    const val kotlinter = "2.2.0"
 
     // Kotlin
     const val kotlin = "1.3.60"

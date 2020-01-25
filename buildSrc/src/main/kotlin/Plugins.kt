@@ -4,6 +4,8 @@ import extensions.kotlinAndroid
 import extensions.kotlinAndroidExtensions
 import extensions.kotlinKapt
 import extensions.kotlinMultiplatform
+import extensions.detekt
+import extensions.kotlinter
 import org.gradle.plugin.use.PluginDependenciesSpec
 import org.gradle.plugin.use.PluginDependencySpec
 
@@ -31,3 +33,9 @@ inline val PluginDependenciesSpec.kotlinAndroidExtensions: PluginDependencySpec
 
 inline val PluginDependenciesSpec.kotlinKapt: PluginDependencySpec
     get() = kotlinKapt
+
+inline val PluginDependenciesSpec.detekt: PluginDependencySpec
+    get() = detekt
+
+inline val PluginDependenciesSpec.kotlinter: PluginDependencySpec
+    get() = kotlinter

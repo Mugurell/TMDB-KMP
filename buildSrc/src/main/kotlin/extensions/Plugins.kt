@@ -8,6 +8,8 @@ import extensions.BuildPlugins.KOTLIN_ANDROID_EXTENSIONS
 import extensions.BuildPlugins.KOTLIN_KAPT
 import extensions.BuildPlugins.KOTLIN_MULTIPLATFORM
 import extensions.BuildPlugins.SPOON
+import extensions.BuildPlugins.DETEKT
+import extensions.BuildPlugins.KOTLINTER
 import org.gradle.plugin.use.PluginDependenciesSpec
 import org.gradle.plugin.use.PluginDependencySpec
 
@@ -32,6 +34,12 @@ inline val PluginDependenciesSpec.kotlinKapt: PluginDependencySpec
 inline val PluginDependenciesSpec.spoon: PluginDependencySpec
     get() = id(SPOON).version(Versions.spoonPlugin)
 
+inline val PluginDependenciesSpec.detekt: PluginDependencySpec
+    get() = id(DETEKT).version(Versions.detekt)
+
+inline val PluginDependenciesSpec.kotlinter: PluginDependencySpec
+    get() = id(KOTLINTER).version(Versions.kotlinter)
+
 object BuildPlugins {
     const val ANDROID_APPLICATION = "com.android.application"
     const val ANDROID_LIBRARY = "com.android.library"
@@ -42,4 +50,6 @@ object BuildPlugins {
     const val KOTLIN_KAPT = "kotlin-kapt"
     const val KOTLIN_ALLOPEN = "kotlin-allopen"
     const val SPOON = "com.jaredsburrows.extensions.getSpoon"
+    const val DETEKT = "io.gitlab.arturbosch.detekt"
+    const val KOTLINTER = "org.jmailen.kotlinter"
 }

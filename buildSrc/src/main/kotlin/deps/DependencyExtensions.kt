@@ -75,6 +75,19 @@ inline val DependencyHandlerScope.kotlinxCoroutinesAndroid
         Versions.kotlinxCoroutines
     )
 
+// Kotlin quality
+inline val DependencyHandlerScope.detektPlugin
+    // https://mvnrepository.com/artifact/io.gitlab.arturbosch.detekt/detekt-cli
+    get() = classpath("io.gitlab.arturbosch.detekt", "detekt-gradle-plugin", Versions.detekt)
+
+inline val DependencyHandlerScope.kotlinter
+    // https://mvnrepository.com/artifact/org.jmailen.gradle/kotlinter-gradle
+    get() = implementation(
+        "org.jmailen.gradle",
+        "kotlinter-gradle",
+        Versions.kotlinter
+    )
+
 // Google Material design
 inline val DependencyHandlerScope.googleAndroidMaterial
     // https://mvnrepository.com/artifact/com.google.android.material/material

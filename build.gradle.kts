@@ -6,6 +6,7 @@ import org.jetbrains.kotlin.gradle.plugin.KotlinMultiplatformPluginWrapper
 import plugins.AndroidConfigPlugin
 import plugins.KMPConfigPlugin
 import plugins.KotlinConfigPlugin
+import plugins.KotlinQualityPlugin
 import plugins.PluginsHelper.applyPluginsTimed
 
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
@@ -13,8 +14,18 @@ import plugins.PluginsHelper.applyPluginsTimed
 buildscript {
     repositories {
         google()
+        mavenCentral()
+        maven { url = uri("https://plugins.gradle.org/m2/") }
         jcenter()
+    }
 
+    dependencies {
+////        classpath("io.gitlab.arturbosch.detekt:cli:1.3.1")
+//        classpath("org.jmailen.gradle:kotlinter-gradle:2.2.0")
+        androidBuildToolsPlugin
+        detektPlugin
+//        classpath("com.android.tools.build:gradle:[version]")
+//        classpath "io.gitlab.arturbosch.detekt:detekt-gradle-plugin:[version]"
     }
 
     // Show all compile time errors
@@ -28,9 +39,15 @@ buildscript {
     }
 }
 
+plugins {
+    detekt apply false
+    kotlinter apply false
+}
+
 allprojects {
     repositories {
         google()
+        mavenCentral()
         jcenter()
     }
 
@@ -48,7 +65,12 @@ subprojects {
     // Whenever a subproject adds the following plugins we come in and add the others
     // Which may do / add other stuff...
     plugins.withType(AppPlugin::class.java) {
-        applyPluginsTimed(project, AndroidConfigPlugin(), KotlinConfigPlugin())
+        applyPluginsTimed(
+            project,
+            AndroidConfigPlugin(),
+            KotlinConfigPlugin(),
+            KotlinQualityPlugin()
+        )
     }
     plugins.withType(LibraryPlugin::class.java) {
         applyPluginsTimed(project, AndroidConfigPlugin())
